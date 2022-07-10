@@ -14,11 +14,25 @@ function SalirDeLaSesion()
 }
 var Nombre = localStorage.getItem("Nombre");
 document.getElementById("MostrarNombre").innerHTML = "Hola, " + Nombre;
-function GuardarNombreDeLaSala()
+function addRoom()
 {
   var NombreDeLaSala = document.getElementById("NombreDeLaSala").value;
   localStorage.setItem("NombreDeLaSala", NombreDeLaSala);
   firebase.database().ref("/").child(NombreDeLaSala).update({
     Nombre: "El nombre de la sala es el que pusiste"
-  })
+  });
+  window.location = "Kwitter_page.html";
 }
+function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey = childSnapshot.key;
+  Room_names = childKey;
+  //Inicia código
+  var row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id) '>#"+Room_names+"</div><hr>";
+  document.getElementById("NombreDeLasSalas").innerHTML = row
+  rediectToRoomName()
+  {
+    localStorage.setItem("NombreDeLaSala", NombreDeLaSala);
+    window.location = "Kwitter_page.html";
+  }
+  //Termina código
+  });});}
+  getData();
