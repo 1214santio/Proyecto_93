@@ -8,7 +8,7 @@ var firebaseConfig = {
   appId: "1:1022759128628:web:7cf48ee6786c059e180461"
 };
 firebase.initializeApp(firebaseConfig);
-function SalirDeLaSesion()
+function logout()
 {
   window.location = "index.html";
 }
